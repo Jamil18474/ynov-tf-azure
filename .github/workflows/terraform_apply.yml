@@ -95,3 +95,8 @@ jobs:
       - name: Terraform Apply
         # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false jamil-zahrane.tfstate
+
+        # Update the local Terraform state to reflect any manual changes in the infrastructure.
+      - name: Terraform Refresh
+        run: terraform refresh
+        
